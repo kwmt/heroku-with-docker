@@ -1,0 +1,5 @@
+{
+    "ImportPath": "github.com/kwmt/heroku-with-docker",
+    "GoVersion": "go1.6",
+    "Deps": []
+}
