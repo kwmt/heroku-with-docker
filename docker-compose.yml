@@ -1,18 +1,18 @@
 web:
   build: .
   command: 'bash -c ''heroku-with-docker'''
-  working_dir: /go/src/github.com/kwmt/heroku-with-docker
+  working_dir: /app/user/src/github.com/kwmt/heroku-with-docker
   environment:
     PORT: 8080
   ports:
     - '8080:8080'
-  links:
-    - db
-db:
-  container_name: heroku_db
-  image: mysql:5.7
+shell:
+  build: .
+  command: bash
+  working_dir: /app/user/src/github.com/kwmt/heroku-with-docker
   environment:
-    MYSQL_ROOT_PASSWORD: herokupass
-    MYSQL_DATABASE: herokudb
-    MYSQL_USER: herokuuser
-    MYSQL_PASSWORD: herokupass
+    PORT: 8080
+  ports:
+    - '8080:8080'
+  volumes:
+    - '.:/app/user/src/github.com/kwmt/heroku-with-docker'
